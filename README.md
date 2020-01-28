@@ -13,9 +13,6 @@ Java分布式优惠券系统后台
    1. Kafka
 
 
-
-![image-20200118094048245](D:\Develop\Coding\couponSystem\md_data\技术分层.png)
-
 ## 需求分析
 
 1. ### 什么是卡包
@@ -58,7 +55,6 @@ Java分布式优惠券系统后台
 
       优惠券领取存储、使用、查看库存、评论
 
-      ![image-20200127145357564](D:\Develop\Coding\couponSystem\md_data\用户应用子系统.png)
 
 3. ### 优惠券使用方法
 
