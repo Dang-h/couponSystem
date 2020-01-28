@@ -1,0 +1,23 @@
+#  spring.datasource.url=
+#    spring.datasource.username=root
+#    spring.datasource.password=mysql
+#  #spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+
+  spring:
+    application:
+      name: Merchants
+    datasource:
+      url: jdbc:mysql://192.168.1.100:3306/merchants?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+      username: root
+      password: mysql
+    kafka:
+      bootstrap-servers: 192.168.1.100:9092
+      consumer:
+        group-id: coupon
+      listener:
+        concurrency: 4
+  server:
+    port: 9527
+  logging:
+    level: debug
+    file: merchants.log
