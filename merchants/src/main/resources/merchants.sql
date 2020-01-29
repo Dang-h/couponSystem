@@ -7,4 +7,4 @@ create table `merchants` (
     `address` varchar (64) collate utf8_bin not null comment '商户地址',
     `is_audit` boolean not null comment '是否通过审核',
     primary key (`id`)
-) engine=InnoDB auto_increment=17 default character=utf8;
+) engine=InnoDB auto_increment=17 default charset=utf8;
