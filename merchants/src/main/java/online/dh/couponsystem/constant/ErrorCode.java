@@ -11,7 +11,7 @@ public enum ErrorCode {
 	EMPTY_BUSINESS_LICENCE(3, "商户营业执照为空"),
 	EMPTY_PHONE(4, "商户联系电话为空"),
 	EMPTY_ADDRESS(5, "商户地址为空"),
-	MERCHANTS_NOT_EXITS(6, "商户不存在");
+	MERCHANTS_NOT_EXIST(6, "商户不存在");
 
 	private final int code;
 	private final String desc;

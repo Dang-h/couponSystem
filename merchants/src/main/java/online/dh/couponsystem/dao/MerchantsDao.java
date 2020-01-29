@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * <h2>Merchants Dao接口</h2>
+ * 利用Jpa生成SQL语句完成数据查询
  */
 public interface MerchantsDao extends JpaRepository<Merchants, Integer> {
 
