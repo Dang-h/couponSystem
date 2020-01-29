@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MerchantsResponse {
+public class CreateMerchantsResponse {
 
 	/** 商户id， 创建失败返回 -1 */
 	// TODO ？为什么创建失败为 -1

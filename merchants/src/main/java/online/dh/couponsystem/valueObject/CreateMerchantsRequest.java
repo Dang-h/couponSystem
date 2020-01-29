@@ -14,7 +14,7 @@ import online.dh.couponsystem.entity.Merchants;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MerchantsRequest {
+public class CreateMerchantsRequest {
 
 	private String name;
 
