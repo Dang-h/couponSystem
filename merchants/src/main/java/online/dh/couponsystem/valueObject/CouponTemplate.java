@@ -15,7 +15,7 @@ import java.util.Date;
 @Data // 利用Lombok实现set/get方法
 @AllArgsConstructor
 @NoArgsConstructor
-public class PassTemplate {
+public class CouponTemplate {
 
 	/** 所属商户id */
 	private Integer id;
