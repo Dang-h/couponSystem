@@ -44,20 +44,14 @@ public class PassTemplate {
 	/** 优惠券最后有效时间 */
 	private Date end;
 
-	/** 商户名称 */
-	private String name;
-
 	/**
 	 * <h3>校验优惠券对象有效性</h3>
 	 * @param merchantsDao {@link MerchantsDao}
 	 * @return {@link ErrorCode}
 	 */
-	public ErrorCode validData(MerchantsDao merchantsDao) {
+	public ErrorCode validate(MerchantsDao merchantsDao) {
 
 		if (null == merchantsDao.findById(id)) {
-			return ErrorCode.MERCHANTS_NOT_EXIST;
-		}
-		if (null == merchantsDao.findByName(name)) {
 			return ErrorCode.MERCHANTS_NOT_EXIST;
 		}
 

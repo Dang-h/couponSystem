@@ -32,7 +32,7 @@ public class Merchants {
 	/** 商户logo，不为null */
 	@Basic
 	@Column(name = "logo_url", nullable = false)
-	private String logo_url;
+	private String logoUrl;
 
 	/** 商户营业执照， 不为null*/
 	@Basic
