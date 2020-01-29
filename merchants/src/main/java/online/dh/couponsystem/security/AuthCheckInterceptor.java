@@ -2,7 +2,6 @@ package online.dh.couponsystem.security;
 
 import online.dh.couponsystem.constant.Constants;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.boot.test.context.TestComponent;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

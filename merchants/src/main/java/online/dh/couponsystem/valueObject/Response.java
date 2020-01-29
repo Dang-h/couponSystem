@@ -13,14 +13,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Response {
 
-	/** 返回值对象 */
-	private final Object data;
 
 	/** 错误码， 执行成功返回0 */
 	private Integer errorCode = 0;
 
 	/** 错误信息， 执行成功返回空字符串 */
-	private String msg = "";
+	private String errorMsg = "";
+
+	/** 返回值对象 */
+	private Object data;
 
 	/**
 	 * <h3>响应正确的构造函数</h3>
