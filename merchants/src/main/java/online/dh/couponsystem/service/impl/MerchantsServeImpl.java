@@ -3,6 +3,7 @@ package online.dh.couponsystem.service.impl;
 import lombok.extern.slf4j.Slf4j;
 import online.dh.couponsystem.constant.ErrorCode;
 import online.dh.couponsystem.dao.MerchantsDao;
+import online.dh.couponsystem.entity.Merchants;
 import online.dh.couponsystem.service.IMerchantsServe;
 import online.dh.couponsystem.valueObject.CouponTemplate;
 import online.dh.couponsystem.valueObject.CreateMerchantsRequest;
@@ -57,7 +58,17 @@ public class MerchantsServeImpl implements IMerchantsServe {
 
 	@Override
 	public Response buildMerchantsInfoId(Integer id) {
-		return null;
+
+		Response response = new Response();
+
+		Merchants merchantsById = merchantsDao.findById(id);
+		if (merchantsById == null) {
+			response.setErrorCode(ErrorCode.MERCHANTS_NOT_EXIST.getCode());
+			response.setErrorMsg(ErrorCode.MERCHANTS_NOT_EXIST.getDesc());
+		}
+
+		response.setData(merchantsById);
+		return response;
 	}
 
 	@Override
