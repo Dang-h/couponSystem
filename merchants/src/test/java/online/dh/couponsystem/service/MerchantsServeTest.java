@@ -23,7 +23,7 @@ public class MerchantsServeTest {
 	private IMerchantsServe merchantsServe;
 
 	@Test
-	@Transactional
+//	@Transactional
 	public void testCreateMerchants() {
 		CreateMerchantsRequest merchantsRequest = new CreateMerchantsRequest();
 		merchantsRequest.setName("测试");
@@ -33,5 +33,15 @@ public class MerchantsServeTest {
 		merchantsRequest.setBusinessLicenseUrl("www.d-h.online");
 
 		System.out.println(JSON.toJSONString(merchantsServe.createMerchants(merchantsRequest)));;
+	}
+
+	@Test
+	public void testBuildMerchantsInfoId(){
+		//{"data":{"address":"北京","businessLicenseUrl":"www.d-h.online","id":26,"isAudit":false,
+		// "logoUrl":"www.d-h.online","name":"测试","phone":"1234567890"},
+		// "errorCode":0,"errorMsg":""}
+		System.out.println(JSON.toJSONString(merchantsServe.buildMerchantsInfoId(26)));
+		//{"errorCode":6,"errorMsg":"商户不存在"}
+		System.out.println(JSON.toJSONString(merchantsServe.buildMerchantsInfoId(25)));
 	}
 }
