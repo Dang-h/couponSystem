@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Slf4j
 @RestController // Rest：用到Rest风格的API；Controller：注册为JavaBean
-@RequestMapping("/merchants")
+@RequestMapping("/merchants")  // 商户都以merchants开头，以merchants开头url的http请求都需要拦截处理
 public class MerchantsCtl {
 
 	/**
