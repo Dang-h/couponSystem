@@ -1,6 +1,8 @@
 package online.dh.couponsystem.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
+import online.dh.couponsystem.constant.Constants;
 import online.dh.couponsystem.constant.ErrorCode;
 import online.dh.couponsystem.dao.MerchantsDao;
 import online.dh.couponsystem.entity.Merchants;
@@ -10,6 +12,7 @@ import online.dh.couponsystem.valueObject.CreateMerchantsRequest;
 import online.dh.couponsystem.valueObject.CreateMerchantsResponse;
 import online.dh.couponsystem.valueObject.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,9 +28,15 @@ public class MerchantsServeImpl implements IMerchantsServe {
 	 */
 	private final MerchantsDao merchantsDao;
 
+	/**
+	 * kafka客户端
+	 */
+	private final KafkaTemplate<String, String> kafkaTemplate;
+
 	@Autowired
-	public MerchantsServeImpl(MerchantsDao merchantsDao) {
+	public MerchantsServeImpl(MerchantsDao merchantsDao, KafkaTemplate<String, String> kafkaTemplate) {
 		this.merchantsDao = merchantsDao;
+		this.kafkaTemplate = kafkaTemplate;
 	}
 
 	@Override
@@ -73,6 +82,26 @@ public class MerchantsServeImpl implements IMerchantsServe {
 
 	@Override
 	public Response dropCouponTemplate(CouponTemplate template) {
-		return null;
+
+		Response response = new Response();
+
+		ErrorCode validate = template.validate(merchantsDao);
+		if (validate != ErrorCode.SUCCESS) {
+			response.setErrorCode(validate.getCode());
+			response.setErrorMsg(validate.getDesc());
+		} else {
+			// 将couponTemplate进行序列化以便于日志打印和投放
+			String couponTemplate = JSON.toJSONString(template);
+			kafkaTemplate.send(
+					// 设置kafka Topic，不设置会自动创建
+					Constants.TEMPLATE_TOPIC,
+					// key
+					Constants.TEMPLATE_TOPIC,
+					// data
+					couponTemplate
+			);
+			log.info("DropCouponTemplate: {}", couponTemplate);
+		}
+		return response;
 	}
 }
