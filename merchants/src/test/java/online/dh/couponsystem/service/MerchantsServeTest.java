@@ -52,7 +52,7 @@ public class MerchantsServeTest {
 	@Test
 	public void testDropCouponTemplate(){
 		CouponTemplate couponTemplate = new CouponTemplate();
-		couponTemplate.setId(28);
+		couponTemplate.setId(27);
 		couponTemplate.setTitle("测试2");
 		couponTemplate.setSummary("测试2");
 		couponTemplate.setDesc("测试2");
