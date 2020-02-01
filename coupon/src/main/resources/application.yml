@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: User-Coupon
+  datasource:
+    url: jdbc:mysql://192.168.1.100:3306/coupon?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+    username: root
+    password: mysql
+    kafka:
+      bootstrap-servers: 192.168.1.100:9092
+      consumer:
+        group-id: coupon
+      listener:
+        concurrency: 4
+    data:
+      hbase:
+        quorum: 192.168.1.100:2181
+        rootDir: hdfs://hadoop102:9000/hbase
+        nodeParent: /hbase
+    redis:
+      host: 192.168.1.100
+      port: 6379
+
+  server:
+    port: 9528
+
+  logging:
+    level: debug
+    file: coupon.log
