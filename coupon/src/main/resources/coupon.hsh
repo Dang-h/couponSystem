@@ -1,0 +1,6 @@
+create_namespace 'coupon'
+
+create 'coupon:user', {NAME => 'basic_info', VERSION => '3', TTL => '2147483647', 'BLOOMFILTER' => 'ROW'}, {NAME => 'other_info', VERSION => '3', TTL => '2147483647', 'BLOOMFILTER' => 'ROW'}
+create 'coupon:coupon', {NAME => 'info', VERSION => '3', TTL => '2147483647', 'BLOOMFILTER' => 'ROW'}
+create 'coupon:couponTemplate', {NAME => 'basic_info', VERSION => '3', TTL => '2147483647', 'BLOOMFILTER' => 'ROW'}, {NAME => 'constraint_info', VERSION => '3', TTL => '2147483647', 'BLOOMFILTER' => 'ROW'}
+create 'coupon:feedback', {NAME => 'info', VERSION => '3', TTL => '2147483647', 'BLOOMFILTER' => 'ROW'}
